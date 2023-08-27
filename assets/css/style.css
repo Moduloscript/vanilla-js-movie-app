@@ -178,29 +178,29 @@ body {
   font-size: var(--fs-title);
 }
 
-.heading{
-color: var(--white);  
-font-size: var(--fs-heading);
-line-height: 1.2;
+.heading {
+  color: var(--white);
+  font-size: var(--fs-heading);
+  line-height: 1.2;
 }
 
-.title-large{
+.title-large {
   font-size: var(--fs-title-lg);
 }
 
-.img-cover{
+.img-cover {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .meta-item {
-  display:  flex;
+  display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.btn{
+.btn {
   color: var(--white);
   font-size: var(--fs-button);
   font-weight: var(--weight-bold);
@@ -212,7 +212,67 @@ line-height: 1.2;
   padding-inline: 20px 24px;
   border-radius: var(--radius-8);
   transition: var(--transition-short);
+}
 
+.card-badge {
+  background-color: var(--banner-background);
+  color: var(--white);
+  font-size: var(--fs-label);
+  font-weight: var(--weight-bold);
+  padding-inline: 6px;
+  border-radius: var(--radius-4);
+}
+
+.poster-box {
+  background-image: url("../images/poster-bg-icon.png");
+  aspect-ratio: 2 / 3;
+}
+
+
+.poster-box,
+.video-card{
+  background-repeat: no-repeat;
+  background-size: 50px;
+  background-position: center;
+  background-color: var(--banner-background);
+  border-radius: var(--radius-16);
+  overflow: hidden;
+}
+
+.title-wrapper{
+ margin-block-end: 24px; 
+}
+
+.slider-list{
+ margin-inline:  -20px; 
+ overflow-x: overlay;
+ padding-block-end: 16px;
+ margin-block-end: -16px;
+}
+.slider-list::-webkit-scrollbar-thumb{
+  background-color: transparent ;
+}
+
+
+.slider-list:is(:hover, :focus-within)::-webkit-scrollbar-thumb{
+  background-color: var(--banner-background);
+}
+
+
+.slider-list::-webkit-scrollbar-button{
+  width: 20px;
+}
+
+.slider-list .slider-inner{
+  position: relative;
+  display: flex;
+  gap: 16px;
+}
+
+.slider-list .slider-inner::before,
+.slider-list .slider-inner::after {
+ content: ""; 
+ min-width: 4px;
 }
 
 /*-----------------------------------*\
@@ -420,7 +480,7 @@ line-height: 1.2;
   #HOME PAGE
 \*-----------------------------------*/
 
-.container{
+.container {
   position: relative;
   background-color: var(--surface);
   color: var(--on-surface);
@@ -430,8 +490,7 @@ line-height: 1.2;
   z-index: 1;
 }
 
-
-.container::after{
+.container::after {
   content: "";
   position: fixed;
   bottom: 0;
@@ -447,7 +506,7 @@ line-height: 1.2;
 *BANNER
 *
 */
-.banner{
+.banner {
   position: relative;
   height: 700px;
   border-radius: var(--radius-24);
@@ -458,12 +517,12 @@ line-height: 1.2;
   position: absolute;
   top: 0;
   left: 120%;
-  width:100%;
+  width: 100%;
   height: 100%;
   background-color: var(--banner-background);
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition-long); 
+  transition: opacity var(--transition-long);
 }
 
 .banner-slider .slider-item::before {
@@ -473,10 +532,9 @@ line-height: 1.2;
   background-image: linear-gradient(var(--banner-overlay));
 }
 
-
-.banner-slider .active{
- left: 0;
- opacity: 1;
+.banner-slider .active {
+  left: 0;
+  opacity: 1;
   visibility: visible;
 }
 
@@ -494,7 +552,6 @@ line-height: 1.2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 
 .banner .heading {
   -webkit-line-clamp: 3;
@@ -514,15 +571,54 @@ line-height: 1.2;
 }
 
 .banner-text {
--webkit-line-clamp: 2;  
-margin-block-end: 24px;
+  -webkit-line-clamp: 2;
+  margin-block-end: 24px;
 }
-
 
 .banner .btn {
   background-color: var(--primary);
 }
 
+.banner .btn:is(:hover, :focus-visible) {
+  box-shadow: var(--shadow-2);
+}
+
+.slider-control {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 0;
+  border-radius: var(--radius-16) 0 0 var(--radius-16);
+  user-select: none;
+  padding: 4px 0 4px 4px;
+  overflow-x: auto;
+}
+
+.slider-control::-webkit-scrollbar {
+  display: none;
+}
+
+.control-inner {
+  display: flex;
+  gap: 12px;
+}
+
+.control-inner::after {
+  content: "";
+  min-width: 12px;
+}
+
+.slider-control .slider-item {
+  width: 100px;
+  border-radius: var(--radius-8);
+  flex-shrink: 0;
+  filter: brightness(0.4);
+}
+
+.slider-control .active {
+  filter: brightness(1);
+  box-shadow: var(--shadow-1);
+}
 
 /*-----------------------------------*\
   #DETAIL PAGE
