@@ -620,6 +620,24 @@ body {
   box-shadow: var(--shadow-1);
 }
 
+/* 
+*MOVIE LIST
+*/
+
+.movie-list{
+  padding-block-start: 32px;
+}
+
+.movie-card{
+  position:relative;
+  width: 200px;
+
+}
+
+.movie-card .banner{
+width
+}
+
 /*-----------------------------------*\
   #DETAIL PAGE
 \*-----------------------------------*/
